@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Payment Successful</title>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TW4WG2VS2D"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-TW4WG2VS2D');
+	</script>
+
+	<script type="text/javascript">
+	    (function(c,l,a,r,i,t,y){
+	        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+	        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+	        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+	    })(window, document, "clarity", "script", "z4ettenbzf");
+	</script>
+
+	<style>
+		:root { --green:#2e7d02; --text:#1f1f1f; --muted:#5f5f5f; --bg:#f4f8f1; --card:#fff; }
+		* { box-sizing:border-box; }
+		body {
+			margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+			padding:24px 16px; background:var(--bg); color:var(--text);
+			font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;
+		}
+		.card {
+			width:100%; max-width:440px; background:var(--card); border-radius:18px;
+			padding:32px 22px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.08);
+		}
+		.tick {
+			width:72px; height:72px; margin:0 auto 18px; border-radius:50%; background:var(--green);
+			display:flex; align-items:center; justify-content:center;
+		}
+		.tick svg { width:38px; height:38px; }
+		h1 { margin:0 0 8px; font-size:24px; color:var(--green); }
+		p { margin:0 0 14px; font-size:16px; line-height:1.55; color:var(--muted); }
+		.steps { text-align:left; margin:20px 0; padding:16px 18px; background:var(--bg); border-radius:12px; }
+		.steps p { margin:0 0 8px; color:var(--text); font-size:15px; }
+		.steps p:last-child { margin:0; }
+		.support { font-size:14px; margin-top:18px; }
+		.support a { color:var(--green); font-weight:600; }
+	</style>
+</head>
+<body>
+	<main class="card">
+		<div class="tick" aria-hidden="true">
+			<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+		</div>
+		<h1>Payment Successful! 🎉</h1>
+		<p>आपका order confirm हो गया है। Thank you!</p>
+
+		<div class="steps">
+			<p>📩 Download link आपके <b>Email / WhatsApp</b> पर भेज दिया गया है।</p>
+			<p>📂 Spam / Promotions folder भी check कर लें।</p>
+			<p>📱 PDF मोबाइल या लैपटॉप दोनों पर पढ़ सकते हैं।</p>
+		</div>
+
+		<p class="support">कोई problem हो तो contact करें:<br>
+			<!-- NOTE: support email confirm karke yahan aur index.html dono me same rakho -->
+			<a href="mailto:support@massage.school.com">support@massage.school.com</a>
+		</p>
+	</main>
+
+	<script id="ts-sale">
+	// TrafficStars "Sale" postback (SOP-prelander-postback.md §4.5): fires once per click_id
+	// stored by index.html. Visitors who never came via a TrafficStars click report nothing.
+	(function () {
+	  var ctx = {};
+	  try { ctx = JSON.parse(localStorage.getItem("ts_ctx") || "{}"); } catch (e) {}
+	  if (!ctx.click_id) return;
+	  var flag = "ts_sale_" + ctx.click_id;
+	  try { if (localStorage.getItem(flag)) return; localStorage.setItem(flag, "1"); } catch (e) {}
+	  var u = "https://ladies-massage-guide.vercel.app/api/track?goal=sale&cid=" + encodeURIComponent(ctx.click_id);
+	  try { fetch(u, { keepalive: true, mode: "no-cors" }); } catch (e) { new Image().src = u; }
+	})();
+	</script>
+</body>
+</html>
