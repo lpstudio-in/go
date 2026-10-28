@@ -1,0 +1,10 @@
+/* The only Elementor Pro rules this page uses (extracted from frontend(1).min.css, 468 KB) */
+.elementor-icon-list-items .elementor-icon-list-item .elementor-icon-list-text{display:inline-block}
+.elementor-widget-countdown .elementor-countdown-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}
+.elementor-widget-countdown .elementor-countdown-item{padding:20px 0;text-align:center;color:#fff}
+.elementor-widget-countdown .elementor-countdown-digits,.elementor-widget-countdown .elementor-countdown-label{line-height:1}
+.elementor-widget-countdown .elementor-countdown-digits{font-size:69px}
+.elementor-widget-countdown .elementor-countdown-label{font-size:19px}
+.elementor-widget-countdown.elementor-countdown--label-block .elementor-countdown-wrapper{display:flex;-webkit-box-pack:center;justify-content:center;margin-right:auto;margin-left:auto}
+.elementor-widget-countdown.elementor-countdown--label-block .elementor-countdown-digits,.elementor-widget-countdown.elementor-countdown--label-block .elementor-countdown-label{display:block}
+.elementor-widget-countdown.elementor-countdown--label-block .elementor-countdown-item{flex-basis:0;-webkit-box-flex:1;flex-grow:1}
