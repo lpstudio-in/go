@@ -1513,16 +1513,24 @@ Same mehnat। 4X income। Better lifestyle।"</p>
 
   track("view");                                 // goal "LP View" (server ignores it if not configured)
 
+  // Ad source for GA4 events and Clarity tags, so a buyer can be traced back to campaign/spot/creative
+  var src = { ts_cmp: ctx.cmp || "none", ts_spot: ctx.spot || "none", ts_cr: ctx.cr || "none",
+              ts_site: ctx.site || "none", ts_click_id: ctx.click_id || "none" };
+  try { Object.keys(src).forEach(function (k) { clarity("set", k, src[k]); }); } catch (e) {}
+  try { gtag("event", "lp_view", src); } catch (e) {}
+
   function buy(e) {
     e.preventDefault();
     track("buy");                                // goal "Buy Click"
+    try { gtag("event", "buy_click", Object.assign({ transport_type: "beacon" }, src)); } catch (e) {}
+    try { clarity("event", "buy_click"); } catch (e) {}
     var dest = new URL(SP_LINK);
     if (ctx.click_id) {
       dest.searchParams.set("utm_source", "trafficstars");
       dest.searchParams.set("utm_medium", "preroll");
       if (ctx.cmp) dest.searchParams.set("utm_campaign", ctx.cmp);
       if (ctx.spot) dest.searchParams.set("utm_content", ctx.spot);
-      // click_id travels to Superprofile so a Zapier "New Purchase" zap can send it back as the Sale postback
+      // click_id travels to Superprofile in the checkout URL (Superprofile's Zapier trigger does not pass UTMs on)
       dest.searchParams.set("utm_term", ctx.click_id);
     }
     setTimeout(function () { location.href = dest.toString(); }, 150);
